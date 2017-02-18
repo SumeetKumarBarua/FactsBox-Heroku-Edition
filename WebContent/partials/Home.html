@@ -1,0 +1,32 @@
+<div class="container">
+
+<div class="row" ng-init="factForm.getCategoryList()">
+		
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+
+			<form role="form" name="factForm">
+				<div class="col-md-3 col-md-offset-1" ng-repeat="x in factForm.list">
+				<br>
+					<div ng-init="r='a'+$index">
+						<a href="#/getFacts/{{x}}">
+							<button  type="button" ng-class="r" class="btn xc" style="font-family: verdana; color:white; font-size: large;">{{x}}</button>
+						</a>
+					</div>
+
+					<div></div>
+				
+		</div>
+		
+
+		
+			
+
+
+
+
+			</form>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>

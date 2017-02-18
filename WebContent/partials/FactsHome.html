@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>FACT BOX</title>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/FactsController.js"></script>
+
+
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+
+
+<body ng-app="Application"  class="fbody" >
+
+
+<div  class="row" style="background-color: #404040;">
+	<div class="col-md-1"></div>
+	<div class="col-md-1">
+	<a href="FactsHome.html#/Home"><img src="../img/Picture5.png" width="auto" height="80" /></a>
+	</div>
+	
+	<div class="col-md-9">
+	<h2 style="text-shadow:white; font-family: Belleza; font-size:xx-large; color: orange;">Learn Thousands of Facts Everyday</h2>
+	
+	</div>
+	
+<div class="col-md-1"></div>
+</div>
+<div style="background-color:#1a1a1a; height: 30px" ></div>
+
+
+<br><br><br>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div ng-view></div>
+		</div>
+	</div>
+</body>
+
+</html>

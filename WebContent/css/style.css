@@ -1,0 +1,117 @@
+/* CSS Document */
+html, body {
+	height: 100%;
+	
+}
+
+.fbody1 {
+	height: 100%;
+	background-color: #131b1c;
+	border-left-color: aqua;
+		  background-image: url("../img/ss.gif"); background-position: center;
+}
+
+ .fbody {
+	height: 100%;
+ 	 background-color: #009999;
+	border-left-color: aqua;
+	/* background-image: url("../img/bg.PNG"); */
+	/*  background-image: url("../img/ss.gif"); */
+	 background-position: center;
+	 
+		
+} 
+
+.indexpage{
+		height: 80%;
+}
+
+.navbar-link{
+	height: 10%;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+.partial-page{
+	margin-top: 20px;
+}
+
+.container-fluid {
+	display: table;
+	width: 100%;
+	font-weight: normal;
+	text-align: center;
+}
+
+.scrollable-content-vertical{
+	height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#login-form-container{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.logout-text{
+	color: red !important;
+}
+
+.container {
+	height: 80%;
+	width: 100%;
+	
+	font-weight: normal;
+	text-align: center;
+}
+
+.buttons {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -100px;
+}
+
+.row-fluid {
+	width: 100%;
+	height: 100%;
+}
+
+.bordering {
+	border-radius: 25px;
+	background: #70DBDB;
+	padding: 20px;
+}
+.button {
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background:#40ff00;
+    width: 300px;
+    border-radius: 25px;
+}
+.xc{
+	border-radius:10px;
+	width:170px;
+	height:170px;
+}
+.a0{
+	background:  #ff0055;
+}
+.a1{
+	background: #00ff80;
+}
+.a2{
+	background: #5500ff;
+}
+.a3{
+	background: #00cccc;
+}
+.a4{
+	background: #ff9900;
+}
+
+.a5{
+	background: #ff6600;
+}
