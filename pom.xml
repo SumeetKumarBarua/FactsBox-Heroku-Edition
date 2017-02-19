@@ -357,7 +357,7 @@
          <artifactId>ojdbc7</artifactId>
          <scope>system</scope>
          <version>1.0</version>
-         <systemPath>${basedir}\src\lib\ojdbc7.jar</systemPath>
+         <systemPath>\src\lib\ojdbc7.jar</systemPath>
       </dependency>
 	  
  
