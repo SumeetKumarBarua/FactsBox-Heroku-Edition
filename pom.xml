@@ -32,9 +32,44 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+	  <!--
+	  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-antrun-plugin</artifactId>
+    <version>1.6</version>
+    <executions>
+        <execution>
+            <id>print-log</id>
+            <phase>initialize</phase>
+            <goals>
+                <goal>run</goal>
+            </goals>
+            <configuration>
+                <target>
+                    <echo message="Your log message for based irectoryy  ${basedir}" />
+                </target>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+-->
+
     </plugins>
   </build>
  <dependencies>
+ 
+ 	 <dependency>
+         <groupId>ojdbc7</groupId>
+         <artifactId>ojdbc7</artifactId>
+         <scope>system</scope>
+         <version>1.0</version>
+         <systemPath>${basedir}\WebContent\WEB-INF\lib\ojdbc7.jar</systemPath>
+      </dependency>
+	  
+ 
+ 
+ 
     <dependency>
       <groupId>antlr</groupId>
       <artifactId>antlr</artifactId>
@@ -352,14 +387,7 @@
       <scope>compile</scope>
     </dependency>
 	
-	 <dependency>
-         <groupId>ojdbc7</groupId>
-         <artifactId>ojdbc7</artifactId>
-         <scope>system</scope>
-         <version>1.0</version>
-         <systemPath>\src\lib\ojdbc7.jar</systemPath>
-      </dependency>
-	  
+
  
 	
 	
