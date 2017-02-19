@@ -58,7 +58,7 @@
     </plugins>
   </build>
  <dependencies>
- 
+ <!--
  	 <dependency>
          <groupId>ojdbc7</groupId>
          <artifactId>ojdbc7</artifactId>
@@ -67,7 +67,7 @@
          <systemPath>${basedir}\WebContent\WEB-INF\lib\ojdbc7.jar</systemPath>
       </dependency>
 	  
- 
+ -->
  
  
     <dependency>
