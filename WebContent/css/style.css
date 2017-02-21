@@ -14,13 +14,7 @@ html, body {
  .fbody {
 	height: 100%;
  	 background-color: #009999;
-	border-left-color: aqua;
-	/* background-image: url("../img/bg.PNG"); */
-	/*  background-image: url("../img/ss.gif"); */
-	 background-position: center;
-	 
-		
-} 
+	} 
 
 .indexpage{
 		height: 80%;
