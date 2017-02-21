@@ -34,5 +34,11 @@ public class FactServiceImpl implements FactService {
 		List<String> result=dao.getDistinctcatergories();
 		return result;
 	}
+
+	public List<Integer> getCountCategories() throws Exception {
+		FactDAO dao=Factory.createFactDAO();
+		List<Integer> result=dao.getCountCategories();
+		return result;
+	}
 	
 }

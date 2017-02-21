@@ -118,5 +118,38 @@ public class FactAPI {
 		return response;
 	}
 	
+	// get distinct categories
+			@GET
+			@Path("countFacts")
+			@Produces(MediaType.APPLICATION_JSON)
+			public Response getCountFacts() throws Exception {
+				Response response = null;
+				try {
+								
+					FactService factService = Factory.createFactService();
+					List<Integer> noOfFacts =  factService.getCountCategories();
+
+					String returnString = JSONParser.toJson(noOfFacts);
+					
+					response = Response.ok(returnString).build();
+				} catch (Exception e) {
+
+					Facts errorMessage = new Facts();
+					errorMessage.setErrMsg(AppConfig.PROPERTIES.getProperty(e
+							.getMessage()));
+					String returnString = JSONParser.toJson(errorMessage);
+					if (e.getMessage().contains("DAO")) {
+						response = Response.status(Status.SERVICE_UNAVAILABLE)
+								.entity(returnString).build();
+					} else {
+						response = Response.status(Status.BAD_REQUEST)
+								.entity(returnString).build();
+
+					}
+				}
+				return response;
+			}
+			
+
 	
 }

@@ -49,14 +49,6 @@ html, body {
 	overflow-x: hidden;
 }
 
-#login-form-container{
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.logout-text{
-	color: red !important;
-}
 
 .container {
 	height: 80%;

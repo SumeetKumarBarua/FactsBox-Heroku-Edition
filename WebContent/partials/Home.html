@@ -2,11 +2,11 @@
 
 <div class="row" ng-init="factForm.getCategoryList()">
 		
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
+		<div></div>
+		<div class="col-lg-7 col-md-12 col-sm-12 ">
 
 			<form role="form" name="factForm">
-				<div class="col-md-3 col-md-offset-1" ng-repeat="x in factForm.list">
+				<div class="col-lg-4 col-md-6 col-sm-4" ng-repeat="x in factForm.list">
 				<br>
 					<div ng-init="r='a'+$index">
 						<a href="#/getFacts/{{x}}">
@@ -14,19 +14,24 @@
 						</a>
 					</div>
 
-					<div></div>
-				
+					<div>
+					</div>
+			</div>
+	
+	</form>			
 		</div>
 		
-
+		<div class="col-lg-5 col-md-offset-1"  style="  height: 400px; width: 400px;">
+	<canvas id="pie" class="chart chart-pie"
+  		chart-data="factForm.pieData" 
+  		chart-labels="factForm.list" 
+  		chart-colors="['#ff0055','#00ff80','#5500ff','#00cccc','#ff9900','#ff6600']">
+	</canvas> 
+	
 		
-			
-
-
-
-
-			</form>
 		</div>
-		<div class="col-md-1"></div>
+		
+	
+		
 	</div>
 </div>

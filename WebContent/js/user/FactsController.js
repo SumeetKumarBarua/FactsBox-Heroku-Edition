@@ -1,13 +1,10 @@
 fact.controller("factController", function($scope,$route, $http,$routeParams) {
-
 	
-	
-
-		
 		$scope.factForm = {};
 		$scope.factForm1 = {};
 		$scope.factForm.list = null;
 		$scope.factForm.category = null;
+		$scope.factForm.pieData=null;
 		$scope.factForm1.list = null;
 		$scope.factForm1.Newlist = null;
 		$scope.factForm1.Randomlist = null;
@@ -16,12 +13,9 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 		$scope.init = function(){	
 			
 			$scope.factForm1.getFacts(); 
-			
-			//myFunction($routeParams.value);
+			$scope.factForm.getPieData();
 		};
 		
-	
-		 
 		 
 		 $scope.$on('$routeChangeSuccess', function(event,next, current) { 
 			   //... you could trigger something here ...
@@ -29,15 +23,15 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 			 var str = next.params.value;
 			 if (str=="BIOLOGY")
 			    {
-			    document.body.style.background="#ff0055";
+			    document.body.style.background="#ff4d88";
 			   	}
 		     else if (str=="CHEMISTRY")
 			    {
-			    document.body.style.background="#00ff80";
+			    document.body.style.background="#1aff8c";
 			   	}
 			 else if (str=="MATHS")
 				{
-				document.body.style.background="#5500ff";
+				document.body.style.background="#884dff";
 				}
 			 else if (str=="PHYSICS")
 				{
@@ -45,11 +39,11 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 				}
 			 else if (str=="SCIENTIST")
 				{
-				document.body.style.background="#ff9900";
+				document.body.style.background="#ffb84d";
 				}
 			 else if (str=="WWII")
 				{
-				document.body.style.background="#ff6600";
+				document.body.style.background="#ff944d";
 				}
 			 else if (str=="Home")
 				{
@@ -72,6 +66,19 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 		});
 
 	};
+	
+	
+	$scope.factForm.getPieData=function(){
+		//alert("ss")
+		var responsePromise=$http.get(URI+"FactAPI"+"/countFacts");
+		responsePromise.then(function(response){
+			$scope.factForm.pieData=response.data;
+		},function(response){
+			$scope.factForm.pieData=null;
+		});
+		
+	};
+	
     
 	$scope.factForm1.getFacts = function() {
 		$scope.factForm1.category=$routeParams.value;

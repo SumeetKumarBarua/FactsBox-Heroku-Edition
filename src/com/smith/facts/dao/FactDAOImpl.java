@@ -133,13 +133,48 @@ public class FactDAOImpl implements FactDAO {
 		}
 
 	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public List<Integer> getCountCategories() throws Exception {
+		SessionFactory sessionFactory = HibernateUtility.createSessionFactory();
+		Session session = null;
+
+		FactDAOImpl dao=new FactDAOImpl();
+		List<String> category= dao.getDistinctcatergories();
+		List<Integer> cat = new ArrayList<>();
+		List<Integer> cat1 = new ArrayList<>();
+		
+		try {
+
+			session = sessionFactory.openSession();
+			
+			for (String c : category) {
+				
+			
+			Query query = session
+					.createQuery("select count(*) from FactsEntity f where f.factCategory=?)");
+			query.setParameter(0, c);
+			
+			cat= query.list();
+			
+			cat1.addAll(cat);
+			}
+			
+			
+			//System.out.println("--  "+cat1);
+			return cat1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("DAO.TECHNICAL_ERROR");
+		} finally {
+			if (session.isOpen() || session != null) {
+				session.close();
+			}
+		}
+	}
+
+
+		
 	public static void main(String[] args) {
 		FactDAOImpl dao=new FactDAOImpl();
 		try {

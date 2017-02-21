@@ -4,7 +4,7 @@ var URI = getURI();
 
 // -----------------------REGISTERING THE APPLICATION AND DEPENDENCIES-----------------------
 
-var fact = angular.module("Application", ['ngRoute']);
+var fact = angular.module("Application", ['ngRoute','chart.js']);
 
 fact.config(function($httpProvider) {
 	$httpProvider.defaults.headers.post['Content-Type'] = "application/json; charset=UTF-8";
