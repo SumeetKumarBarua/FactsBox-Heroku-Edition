@@ -48,7 +48,7 @@ public class FactDAOImpl implements FactDAO {
 		}
 		catch(Exception e)
 		{e.printStackTrace();
-			throw new Exception("DAO.TECHINAL_ERROR"); 
+			throw new Exception("DATABASE_TECHINAL_ERROR"); 
 		} 
 		
 		finally { 
@@ -84,15 +84,14 @@ public class FactDAOImpl implements FactDAO {
 				Facts facts1 = new Facts();
 			facts1.setFactDesc(facts.getFactDesc());
 			result.add(facts1);
-			//facts1.setFactCategory(facts.getFactCategory());
-			
+				
 		}
 			
 		}
 		}
 		catch(Exception e)
 		{e.printStackTrace();
-			throw new Exception("DAO.TECHINAL_ERROR"); 
+			throw new Exception("DATABASE_TECHINAL_ERROR"); 
 		} 
 		
 		finally { 
@@ -116,15 +115,11 @@ public class FactDAOImpl implements FactDAO {
 						.createQuery("select DISTINCT f.factCategory from FactsEntity f order by f.factCategory");
 
 				List<String> cat = query.list();
-				
-				
-			//	System.out.println("--  "+cat);
-				
-				
+					
 				return cat;
 
 			} catch (Exception exception) {
-				throw new Exception("DAO.TECHNICAL_ERROR");
+				throw new Exception("DATABASE_TECHINAL_ERROR");
 			} finally {
 				if (session.isOpen() || session != null) {
 					session.close();
@@ -158,14 +153,10 @@ public class FactDAOImpl implements FactDAO {
 			
 			cat1.addAll(cat);
 			}
-			
-			
-			//System.out.println("--  "+cat1);
 			return cat1;
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception("DAO.TECHNICAL_ERROR");
+			throw new Exception("DATABASE_TECHINAL_ERROR");
 		} finally {
 			if (session.isOpen() || session != null) {
 				session.close();
@@ -175,7 +166,9 @@ public class FactDAOImpl implements FactDAO {
 
 
 		
-	public static void main(String[] args) {
+	/* For testing the class
+	 * 
+	 * public static void main(String[] args) {
 		FactDAOImpl dao=new FactDAOImpl();
 		try {
 			//System.out.println(dao.getFact(1001));
@@ -183,10 +176,10 @@ public class FactDAOImpl implements FactDAO {
 			//System.out.println(dao.getDistinctcatergories());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
-	}
+	}*/
 
 
 

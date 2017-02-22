@@ -14,21 +14,10 @@ public class HibernateUtility {
 	private static SessionFactory getSessionFactory() {
 		try {
 			if (sessionFactory == null) {
-
-				// Step1 : Loading the configuration details from
-				// hibernate.cfg.xml
 				Configuration configuration = new Configuration()
 						.configure(CONFIGURATION_LOCATION);
-
-				// Step2 : Creating ServiceRegistry using the
-				// StandardServiceRegistryBuilder and Configuration defined in
-				// Step1
-
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
-
-				// Step3 : Creating the SessionFactory using the Configuration
-				// and serviceRegistry
 				sessionFactory = configuration
 						.buildSessionFactory(serviceRegistry);
 			}

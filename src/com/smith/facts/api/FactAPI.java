@@ -12,7 +12,6 @@ import javax.ws.rs.core.Response.Status;
 
 import com.smith.facts.bean.Facts;
 import com.smith.facts.business.service.FactService;
-import com.smith.facts.resources.AppConfig;
 import com.smith.facts.resources.Factory;
 import com.smith.facts.resources.JSONParser;
 
@@ -22,22 +21,23 @@ public class FactAPI {
 	@GET
 	@Path("factId")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getFactDesc(@PathParam("factId") String factId) throws Exception {
+	public Response getFactDesc(@PathParam("factId") String factId)
+			throws Exception {
 		Response response = null;
-		Integer id=Integer.parseInt(factId);
-		
+		Integer id = Integer.parseInt(factId);
+
 		try {
-			FactService ser=Factory.createFactService();
+			FactService ser = Factory.createFactService();
 			List<Facts> factList = ser.getFacts(id);
-						
+
 			String returnString = JSONParser.toJson(factList);
 			response = Response.ok(returnString).build();
 		} catch (Exception e) {
 
 			Facts msg = new Facts();
-			msg.setErrMsg((AppConfig.PROPERTIES.getProperty(e.getMessage())));
+			msg.setErrMsg((e.getMessage()));
 			String returnString = JSONParser.toJson(msg);
-			if (e.getMessage().contains("DAO")) {
+			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
 			} else {
@@ -54,21 +54,23 @@ public class FactAPI {
 	@GET
 	@Path("category/{cat}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getFactCategory(@PathParam("cat") String category) throws Exception {
+	public Response getFactCategory(@PathParam("cat") String category)
+			throws Exception {
 		Response response = null;
-		
+
 		try {
-			FactService ser=Factory.createFactService();
+			FactService ser = Factory.createFactService();
 			List<Facts> factList = ser.getFactsCategory(category);
-						
+
 			String returnString = JSONParser.toJson(factList);
+
 			response = Response.ok(returnString).build();
 		} catch (Exception e) {
 
 			Facts msg = new Facts();
-			msg.setErrMsg((AppConfig.PROPERTIES.getProperty(e.getMessage())));
+			msg.setErrMsg((e.getMessage()));
 			String returnString = JSONParser.toJson(msg);
-			if (e.getMessage().contains("DAO")) {
+			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
 			} else {
@@ -80,10 +82,7 @@ public class FactAPI {
 
 		return response;
 	}
-	
-	
-	
-	
+
 	// get distinct categories
 	@GET
 	@Path("distinctCategory")
@@ -91,22 +90,18 @@ public class FactAPI {
 	public Response getDistinctCategories() throws Exception {
 		Response response = null;
 		try {
-			
-			
-			
 			FactService factService = Factory.createFactService();
-			List<String> categoryList =  factService.getDistinctcatergories();
+			List<String> categoryList = factService.getDistinctcatergories();
 
 			String returnString = JSONParser.toJson(categoryList);
-			
+
 			response = Response.ok(returnString).build();
 		} catch (Exception e) {
 
-			Facts errorMessage = new Facts();
-			errorMessage.setErrMsg(AppConfig.PROPERTIES.getProperty(e
-					.getMessage()));
-			String returnString = JSONParser.toJson(errorMessage);
-			if (e.getMessage().contains("DAO")) {
+			Facts msg = new Facts();
+			msg.setErrMsg((e.getMessage()));
+			String returnString = JSONParser.toJson(msg);
+			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
 			} else {
@@ -117,39 +112,36 @@ public class FactAPI {
 		}
 		return response;
 	}
-	
-	// get distinct categories
-			@GET
-			@Path("countFacts")
-			@Produces(MediaType.APPLICATION_JSON)
-			public Response getCountFacts() throws Exception {
-				Response response = null;
-				try {
-								
-					FactService factService = Factory.createFactService();
-					List<Integer> noOfFacts =  factService.getCountCategories();
 
-					String returnString = JSONParser.toJson(noOfFacts);
-					
-					response = Response.ok(returnString).build();
-				} catch (Exception e) {
+	// count of facts in each category
+	@GET
+	@Path("countFacts")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getCountFacts() throws Exception {
+		Response response = null;
+		try {
 
-					Facts errorMessage = new Facts();
-					errorMessage.setErrMsg(AppConfig.PROPERTIES.getProperty(e
-							.getMessage()));
-					String returnString = JSONParser.toJson(errorMessage);
-					if (e.getMessage().contains("DAO")) {
-						response = Response.status(Status.SERVICE_UNAVAILABLE)
-								.entity(returnString).build();
-					} else {
-						response = Response.status(Status.BAD_REQUEST)
-								.entity(returnString).build();
+			FactService factService = Factory.createFactService();
+			List<Integer> noOfFacts = factService.getCountCategories();
 
-					}
-				}
-				return response;
+			String returnString = JSONParser.toJson(noOfFacts);
+
+			response = Response.ok(returnString).build();
+		} catch (Exception e) {
+
+			Facts msg = new Facts();
+			msg.setErrMsg((e.getMessage()));
+			String returnString = JSONParser.toJson(msg);
+			if (e.getMessage().contains("DATABASE")) {
+				response = Response.status(Status.SERVICE_UNAVAILABLE)
+						.entity(returnString).build();
+			} else {
+				response = Response.status(Status.BAD_REQUEST)
+						.entity(returnString).build();
+
 			}
-			
+		}
+		return response;
+	}
 
-	
 }

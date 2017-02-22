@@ -7,12 +7,6 @@ import com.smith.facts.bean.Facts;
 import com.smith.facts.dao.FactDAO;
 import com.smith.facts.resources.Factory;
 
-/**
- * Service class to execute business logic
- * 
- * @author ETA
- */
-
 public class FactServiceImpl implements FactService {
 
 	public List<Facts> getFacts(Integer factId) throws Exception {
