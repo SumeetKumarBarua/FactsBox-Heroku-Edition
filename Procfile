@@ -1,1 +1,1 @@
-web:    java -jar target/factbox.jar
+web:    java $JAVA_OPTS -jar target/dependency/factbox.jar --port $PORT target/*.war
