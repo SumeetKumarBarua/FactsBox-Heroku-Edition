@@ -3,12 +3,11 @@
   <groupId>factbox</groupId>
   <artifactId>factbox</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-  
+  <packaging>war</packaging>
   <build>
-   <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory>
     <plugins>
-	<plugin>
+    	<plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
         <configuration>
@@ -16,7 +15,6 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-	  
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>
@@ -25,8 +23,7 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
-	  
-	  <plugin>
+      <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <version>2.3</version>
@@ -37,59 +34,45 @@
                     <configuration>
                         <artifactItems>
                             <artifactItem>
-                                <groupId>com.example</groupId>
-                                <artifactId>factbox</artifactId>
+                                <groupId>com.github.jsimone</groupId>
+                                <artifactId>webapp-runner</artifactId>
                                 <version>8.0.30.2</version>
-                                <destFileName>factbox.jar</destFileName>
+                                <destFileName>webapp-runner.jar</destFileName>
                             </artifactItem>
                         </artifactItems>
                     </configuration>
                 </execution>
             </executions>
         </plugin>
-	  
-	  
-	  
-	 <!-- <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <finalName>factbox</finalName>
-          <appendAssemblyId>false</appendAssemblyId>
-          <archive>
-            <manifest>
-             <addClasspath>true</addClasspath>
-              <mainClass>fully.qualified.MainClass</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-        <executions>
-          <execution>
-            <id>build-jar-with-dependencies</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>-->
     </plugins>
   </build>
- <dependencies>
- <!--
- 	 <dependency>
-         <groupId>ojdbc7</groupId>
-         <artifactId>ojdbc7</artifactId>
-         <scope>system</scope>
-         <version>1.0</version>
-         <systemPath>${basedir}\WebContent\WEB-INF\lib\ojdbc7.jar</systemPath>
-      </dependency>
-	  
- -->
- 
+  <dependencies>
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
+  	<dependency>
+  		<groupId>com.eclipsesource.minimal-json</groupId>
+  		<artifactId>minimal-json</artifactId>
+  		<version>0.9.4</version>
+	</dependency>
+	
+	 <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.4-1201-jdbc4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.heroku.sdk</groupId>
+      <artifactId>heroku-jdbc</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jscience</groupId>
+      <artifactId>jscience</artifactId>
+      <version>4.3.1</version>
+    </dependency>
  
     <dependency>
       <groupId>antlr</groupId>
@@ -345,14 +328,7 @@
         </exclusion>
       </exclusions>
     </dependency>
-	<!--
-    <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc7</artifactId>
-      <version>12.1.0.1</version>
-      <scope>compile</scope>
-    </dependency>
-	-->
+	
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.antlr</artifactId>
@@ -409,9 +385,6 @@
     </dependency>
 	
 
- 
-	
 	
   </dependencies>
-
 </project>
