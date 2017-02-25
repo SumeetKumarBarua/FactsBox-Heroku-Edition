@@ -23,8 +23,7 @@ public class HibernateUtility {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			Logger logger = Logger.getLogger(HibernateUtility.class);
-			logger.debug(e.getMessage(), e);
+			
 		}
 		return sessionFactory;
 	}
