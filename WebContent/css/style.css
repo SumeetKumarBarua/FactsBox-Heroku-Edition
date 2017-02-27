@@ -1,29 +1,51 @@
 /* CSS Document */
 html, body {
 	height: 100%;
-	
 }
 
+p {
+    margin-bottom: 1px;
+}
+
+@media only screen and ( max-width:767px) {
+h5
+{
+	font-size: 25px; 
+}
+.fbody1 {
+	background-image: url("../img/colors.gif"); 
+	background-position: center;
+}
+}
+
+
+@media ( min-width :768px) {
 .fbody1 {
 	height: 100%;
-	background-color: #131b1c;
-	border-left-color: aqua;
-		  background-image: url("../img/ss.gif"); background-position: center;
+	
+	background-image: url("../img/welcome.gif"); 
+	background-position: center;
+	
+}
 }
 
- .fbody {
+
+.fbody {
 	height: 100%;
- 	 background-color: #009999;
-	} 
+ 	 background-color:#222222;
+}  
+
+@font-face {
+    font-family: simplifica;    
+    src: url("../css/simp.ttf");
+}
+
+.simp {
+     font-family: simplifica;
+}
 
 .indexpage{
 		height: 80%;
-}
-
-.navbar-link{
-	height: 10%;
-	padding-left: 5px !important;
-	padding-right: 5px !important;
 }
 
 .partial-page{
@@ -36,13 +58,6 @@ html, body {
 	font-weight: normal;
 	text-align: center;
 }
-
-.scrollable-content-vertical{
-	height: 200px;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
 
 .container {
 	height: 80%;
@@ -77,6 +92,21 @@ html, body {
     width: 300px;
     border-radius: 25px;
 }
+
+
+.footer {
+	position:fixed; 
+    color:white;
+    text-align:center;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    height:50px;
+    margin-bottom:20px;
+    
+}
+
+
 .xc{
 	border-radius:10px;
 	width:170px;
@@ -100,4 +130,21 @@ html, body {
 
 .a5{
 	background: #ff6600;
+}
+
+@media only screen and (max-width: 769px){
+.showInLappy
+{
+	
+	display: none;
+}
+
+}
+
+@media only screen and (min-width: 769px){	
+.showInMobile
+{
+	display: none;
+}
+
 }

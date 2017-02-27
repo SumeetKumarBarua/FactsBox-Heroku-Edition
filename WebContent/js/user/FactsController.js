@@ -47,7 +47,7 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 				}
 			 else if (str=="Home")
 				{
-				document.body.style.background="#009999";
+				document.body.style.background="#222222";
 				}
 
 			 });
@@ -94,7 +94,7 @@ fact.controller("factController", function($scope,$route, $http,$routeParams) {
 			s=$scope.factForm1.Newlist.length;
 			
 			 var x = Math.floor((Math.random() *(s-1)) + 0);
-			//alert(x);
+			
 			$scope.factForm1.Randomlist=$scope.factForm1.Newlist[x];
 				
 		}, function(response) {

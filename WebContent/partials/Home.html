@@ -2,15 +2,14 @@
 
 <div class="row" ng-init="factForm.getCategoryList()">
 		
-		<div></div>
-		<div class="col-lg-7 col-md-12 col-sm-12 ">
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
 			<form role="form" name="factForm">
-				<div class="col-lg-4 col-md-6 col-sm-4" ng-repeat="x in factForm.list">
+				<div class="col-lg-4 col-md-6 col-sm-4 col xs-12" ng-repeat="x in factForm.list">
 				<br>
 					<div ng-init="r='a'+$index">
 						<a href="#/getFacts/{{x}}">
-							<button  type="button" ng-class="r" class="btn xc" style="font-family: verdana; color:white; font-size: large;">{{x}}</button>
+							<button  type="button" ng-class="r" class="btn xc" style="font-family:Roboto Thin, sans-serif; color:white;font-weight:600; font-size: large;">{{x}}</button>
 						</a>
 					</div>
 
@@ -21,14 +20,20 @@
 	</form>			
 		</div>
 		
-		<div class="col-lg-5 col-md-offset-1"  style="  height: 400px; width: 400px;">
-	<canvas id="pie" class="chart chart-pie"
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="height:auto; width:auto;">
+	<canvas id="pie" class="chart chart-pie showInLappy"
   		chart-data="factForm.pieData" 
   		chart-labels="factForm.list" 
   		chart-colors="['#ff0055','#00ff80','#5500ff','#00cccc','#ff9900','#ff6600']">
 	</canvas> 
+	 
 	
-		
+	<canvas id="bar" class="chart chart-bar showInMobile"
+  		chart-data="factForm.pieData" 
+  		chart-labels="factForm.list" 
+  		chart-colors="['#ff0055','#00ff80','#5500ff','#00cccc','#ff9900','#ff6600']" style="height:auto; width:auto;">
+	</canvas> 
+	
 		</div>
 		
 	

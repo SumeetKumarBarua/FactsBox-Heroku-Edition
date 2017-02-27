@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FACT BOX</title>
 
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -13,8 +13,7 @@
 	<div align="center"
 		style="width: 80%; text-align: center; position: relative; left: 10%; top: 30%;">
 
-		<h1
-			style="color: #44dd60; font-family: Copperplate/ Copperplate Gothic Light, sans-serif; font-weight: bolder; font-size: 450%">Love
+		<h1 style="color: #44dd60; font-family: Copperplate/ Copperplate Gothic Light, sans-serif; font-weight: bolder; font-size: 450%">Love
 			to Learn Facts ?</h1>
 		<br> <br> 
 		<a href="partials/FactsHome.html"><button type="button"
@@ -23,7 +22,6 @@
 			</button></a>
 
 	</div>
-
 
 </body>
 </html>
