@@ -9,17 +9,10 @@ import com.smith.facts.resources.Factory;
 
 public class FactServiceImpl implements FactService {
 
-	public List<Facts> getFacts(Integer factId) throws Exception {
-		// TODO Auto-generated method stub
-		FactDAO dao=Factory.createFactDAO();
-		List<Facts> result=dao.getFact(factId);
-		return result;
-	}
 
-
-	public List<Facts> getFactsCategory(String category) throws Exception {
+	public List<String> getFactsCategory(String category) throws Exception {
 		FactDAO dao=Factory.createFactDAO();
-		List<Facts> result=dao.getFactsCategory(category);
+		List<String> result=dao.getFactsCategory(category);
 		return result;
 	}
 	

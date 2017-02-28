@@ -6,8 +6,8 @@ import com.smith.facts.bean.Facts;
 
 public interface FactService {
 
-	public List<Facts> getFacts(Integer factId) throws Exception;
-	public List<Facts> getFactsCategory(String category) throws Exception;
+	
+	public List<String> getFactsCategory(String category) throws Exception;
 	public List<String> getDistinctcatergories() throws Exception;
 	public List<Integer> getCountCategories() throws Exception;
 }

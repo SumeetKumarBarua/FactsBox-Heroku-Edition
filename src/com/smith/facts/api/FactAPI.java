@@ -17,39 +17,7 @@ import com.smith.facts.resources.JSONParser;
 
 @Path("FactAPI")
 public class FactAPI {
-	// gets factId from DB
-	@GET
-	@Path("factId")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getFactDesc(@PathParam("factId") String factId)
-			throws Exception {
-		Response response = null;
-		Integer id = Integer.parseInt(factId);
-
-		try {
-			FactService ser = Factory.createFactService();
-			List<Facts> factList = ser.getFacts(id);
-
-			String returnString = JSONParser.toJson(factList);
-			response = Response.ok(returnString).build();
-		} catch (Exception e) {
-
-			Facts msg = new Facts();
-			msg.setErrMsg((e.getMessage()));
-			String returnString = JSONParser.toJson(msg);
-			if (e.getMessage().contains("DATABASE")) {
-				response = Response.status(Status.SERVICE_UNAVAILABLE)
-						.entity(returnString).build();
-			} else {
-				response = Response.status(Status.BAD_REQUEST)
-						.entity(returnString).build();
-
-			}
-		}
-
-		return response;
-	}
-
+	
 	// gets the category
 	@GET
 	@Path("category/{cat}")
@@ -60,7 +28,7 @@ public class FactAPI {
 
 		try {
 			FactService ser = Factory.createFactService();
-			List<Facts> factList = ser.getFactsCategory(category);
+			List<String> factList = ser.getFactsCategory(category);
 
 			String returnString = JSONParser.toJson(factList);
 

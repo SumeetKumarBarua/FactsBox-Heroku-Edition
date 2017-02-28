@@ -1,5 +1,8 @@
 package com.smith.facts.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,179 +12,111 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+
 import com.smith.facts.bean.Facts;
-import com.smith.facts.entity.FactsEntity;
-import com.smith.facts.resources.HibernateUtility;
+import com.smith.facts.resources.JDBCConnection;
+
 
 public class FactDAOImpl implements FactDAO {
-
+ 
 	@Override
-	public List<Facts> getFact(Integer factId) throws Exception {
-		// TODO Auto-generated method stub
-		SessionFactory sessionFactory=null;
+	public List<String> getFactsCategory(String category) throws Exception {
+		
+		List<String> result=new ArrayList<String>();
+		Connection connection = JDBCConnection.jdbcConnection();
 		Session session=null;
-		List<Facts> result=new ArrayList<Facts>();
-		try{
-			sessionFactory=HibernateUtility.createSessionFactory();
-			session=sessionFactory.openSession();
-			
-			Query query=session.createQuery("select f from FactsEntity f where f.factId=?");
-			query.setParameter(0, factId);
-			
-			
-			
-			@SuppressWarnings("unchecked")
-			List<FactsEntity> facRes=query.list();
-			
-			Facts facts1 = new Facts();
-			
-		if (!facRes.isEmpty()) 
-		{ 
-			for (FactsEntity facts : facRes) {
-			
-			facts1.setFactDesc(facts.getFactDesc());
-			facts1.setFactCategory(facts.getFactCategory());
-			
-		}
-			result.add(facts1);
-		}
+		try{			
+			String sql="select fact_description from fact_box where fact_Category=?";
+	        PreparedStatement ps=connection.prepareStatement(sql);
+	        ps.setString(1, category.toUpperCase());
+	        ResultSet rs=ps.executeQuery();
+	        
+	        while(rs.next())
+	        {	
+	        	String s=rs.getString("fact_description");
+	        	result.add(s);
+	        }
+	        System.out.println(result);
 		}
 		catch(Exception e)
 		{e.printStackTrace();
 			throw new Exception("DATABASE_TECHINAL_ERROR"); 
+		}finally {
+			if(connection!=null)
+	        	 connection.close();
+			if(session!=null)
+				session.close();
 		} 
-		
-		finally { 
-			if (session.isOpen() || session != null) 
-		{ session.close(); } 
-		}
-			return result;
-	}
-
-	
-	@Override
-	public List<Facts> getFactsCategory(String category) throws Exception {
-		SessionFactory sessionFactory=null;
-		Session session=null;
-		List<Facts> result=new ArrayList<Facts>();
-		try{
-			sessionFactory=HibernateUtility.createSessionFactory();
-			session=sessionFactory.openSession();
-			
-			Query query=session.createQuery("select f from FactsEntity f where f.factCategory=?"); 
-			query.setParameter(0, category.toUpperCase());
-			
-			
-			@SuppressWarnings("unchecked")
-			List<FactsEntity> facRes=query.list();
-			
-			
-			
-		if (!facRes.isEmpty()) 
-		{ 
-			
-			for (FactsEntity facts : facRes) {
-				Facts facts1 = new Facts();
-			facts1.setFactDesc(facts.getFactDesc());
-			result.add(facts1);
 				
-		}
-			
-		}
-		}
-		catch(Exception e)
-		{e.printStackTrace();
-			throw new Exception("DATABASE_TECHINAL_ERROR"); 
-		} 
-		
-		finally { 
-			if (session.isOpen() || session != null) 
-		{ session.close(); } 
-		}
 			return result;
 	}
-
-	
-
-	@Override
-	public List<String> getDistinctcatergories() throws Exception {
-			SessionFactory sessionFactory = HibernateUtility.createSessionFactory();
-			Session session = null;
-
-			try {
-
-				session = sessionFactory.openSession();
-				Query query = session
-						.createQuery("select DISTINCT f.factCategory from FactsEntity f order by f.factCategory");
-
-				List<String> cat = query.list();
-					
-				return cat;
-
-			} catch (Exception exception) {
-				throw new Exception("DATABASE_TECHINAL_ERROR");
-			} finally {
-				if (session.isOpen() || session != null) {
-					session.close();
-				}
-			}
-		}
 
 	
 	@Override
 	public List<Integer> getCountCategories() throws Exception {
-		SessionFactory sessionFactory = HibernateUtility.createSessionFactory();
-		Session session = null;
-
+		Connection connection = JDBCConnection.jdbcConnection();
+		Session session=null;
 		FactDAOImpl dao=new FactDAOImpl();
 		List<String> category= dao.getDistinctcatergories();
 		List<Integer> cat = new ArrayList<>();
-		List<Integer> cat1 = new ArrayList<>();
-		
 		try {
-
-			session = sessionFactory.openSession();
 			
-			for (String c : category) {
-				
 			
-			Query query = session
-					.createQuery("select count(*) from FactsEntity f where f.factCategory=?)");
-			query.setParameter(0, c);
-			
-			cat= query.list();
-			
-			cat1.addAll(cat);
+			for(int i=0;i<category.size();i++){
+			String c=category.get(i);
+			String sql="select count(*) from fact_box where fact_Category=?";
+	        PreparedStatement ps=connection.prepareStatement(sql);
+	        ps.setString(1, c);
+	        ResultSet rs=ps.executeQuery();
+	        int size=0;
+	        while(rs.next())
+	        {  size=rs.getInt(1);
+	        	cat.add(size);
+	        }
+	        
 			}
-			return cat1;
-
+			//System.out.println(cat);
+			return cat;
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new Exception("DATABASE_TECHINAL_ERROR");
-		} finally {
-			if (session.isOpen() || session != null) {
+		}finally {
+			if(connection!=null)
+	        	 connection.close();
+			if(session!=null)
 				session.close();
-			}
-		}
+		} 
 	}
 
 
+	@Override
+	public List<String> getDistinctcatergories() throws Exception {
 		
-	/* For testing the class
-	 * 
-	 * public static void main(String[] args) {
-		FactDAOImpl dao=new FactDAOImpl();
+		List<String> list=new ArrayList<String>();
+		Connection connection = JDBCConnection.jdbcConnection();
+		Session session=null;
 		try {
-			//System.out.println(dao.getFact(1001));
-			//System.out.println(dao.getFactsCategory("physics"));
-			//System.out.println(dao.getDistinctcatergories());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			String sql="select distinct fact_category from fact_box order by fact_category";
+	        PreparedStatement ps=connection.prepareStatement(sql);
+	        ResultSet rs=ps.executeQuery();
+	        
+	        while(rs.next())
+	        {	
+	        	String s=rs.getString("fact_Category");
+	        	list.add(s);
+	        }
+	       // System.out.println(list);
+				return list;
+
+			} catch (Exception exception) {
+				exception.printStackTrace();
+				throw new Exception("DATABASE_TECHINAL_ERROR");
+			} finally {
+				if(connection!=null)
+		        	 connection.close();
+				if(session!=null)
+					session.close();
+			} 
 		}
-		
-	}*/
-
-
-
 
 }
