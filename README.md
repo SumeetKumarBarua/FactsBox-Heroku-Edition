@@ -19,17 +19,20 @@ This project is solely dedicated for web hosting on Heroku. To make it live plea
 # Installing
 To run on local server please visit <a href="https://github.com/SumeetKumarBarua/FactsBox">FactsBox</a>. Still if you want to make this project to work on your local system then make some minor changes:
     1.Copy the project on to your local system and run the table script on your own database.
+    
     2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever you are using here.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/connection.PNG)
     
     3.Import the repo to Eclipse as Maven Project.
+    
     4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
     
         var getURI = function(){
 	    var URL='https://factsbox.herokuapp.com/api/';
 	    return URL;
          }
-    Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name/index.html
+	 
+    	Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name/index.html
     
     5.Run on server and you are ready to go.
     
