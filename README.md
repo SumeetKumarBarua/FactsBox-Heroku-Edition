@@ -25,13 +25,13 @@ To run only on local server please visit <a href="https://github.com/SumeetKumar
 Still if you want to make this project to work on your local system then make some minor changes:
 
    1.Copy the project on to your local system and run the table script on your own database.
+   
+   2.Import the repo to Eclipse as Maven Project.
     
-   2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever
+   3.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever
       you are using here.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/connection.PNG)
-    
-   3.Import the repo to Eclipse as Maven Project.
-    
+      
    4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
     
         var getURI = function(){
@@ -40,7 +40,7 @@ Still if you want to make this project to work on your local system then make so
          }
 	 
     	Eg. If you use Tomcat then it would look something like this:
-	    [http]://localhost:[port number]/Your_App_Name/index.html
+	      [http]://localhost:[port number]/Your_App_Name/index.html
     
    5.Run on server.    
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
