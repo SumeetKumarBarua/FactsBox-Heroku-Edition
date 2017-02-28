@@ -21,7 +21,8 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
 
     1.Copy the project on to your local system and run the table script on your own database.
     
-    2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever you are using here.
+    2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever
+      you are using here.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/connection.PNG)
     
     3.Import the repo to Eclipse as Maven Project.
