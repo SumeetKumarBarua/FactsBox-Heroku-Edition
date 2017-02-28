@@ -19,15 +19,15 @@ This project is solely dedicated for web hosting on Heroku. To make it live plea
 # Installing
 To run on local server please visit <a href="https://github.com/SumeetKumarBarua/FactsBox">FactsBox</a>. Still if you want to make this project to work on your local system then make some minor changes:
 
-    1.Copy the project on to your local system and run the table script on your own database.
+   1.Copy the project on to your local system and run the table script on your own database.
     
-    2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever
+   2.Configure the connection file(JDBCConnection.java) with the driver settings of database whichever
       you are using here.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/connection.PNG)
     
-    3.Import the repo to Eclipse as Maven Project.
+   3.Import the repo to Eclipse as Maven Project.
     
-    4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
+   4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
     
         var getURI = function(){
 	    var URL='https://factsbox.herokuapp.com/api/';
@@ -37,16 +37,16 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
     	Eg. If you use Tomcat then it would look something like this:
 	    [http]://localhost:[port number]/Your_App_Name/index.html
     
-    5.Run on server.    
+   5.Run on server.    
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
 
 # Deploy
-Please visit <a href="https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app">here </a> to follow the steps to deploy in Heroku
+Please visit <a href="https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app">here </a> to follow the steps to deploy on Heroku
 
 # Live Demo
 Please Visit <a href="https://factsbox.herokuapp.com">here </a>
 
-# Something else isn't working properly
+# Something isn't working properly
 Send me an email sumeet.barua007@gmail.com (might take a few days)
 
 # Links
