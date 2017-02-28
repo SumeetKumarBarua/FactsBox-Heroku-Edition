@@ -6,6 +6,9 @@ Everyone wants to have a piece of Science in their daily lives. This app gives s
 
 ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/iphone.gif)
 
+# Motivation
+We always find small snippets of code all over the net doing some functionalities. So how about getting everything all together(from Back-End to front-End) truly coupled up for our purpose. Sounds cool..Right. So follow the steps below and enjoy.
+
 # Getting Started
 This project is solely dedicated for web hosting on Heroku. To make it live please follow the configuration steps for Heroku <a href="https://devcenter.heroku.com/articles/getting-started-with-java#set-up">here</a>
 
@@ -17,7 +20,9 @@ This project is solely dedicated for web hosting on Heroku. To make it live plea
     5.Heroku CLI to deploy on Heroku
 
 # Installing
-To run on local server please visit <a href="https://github.com/SumeetKumarBarua/FactsBox">FactsBox</a>. Still if you want to make this project to work on your local system then make some minor changes:
+To run only on local server please visit <a href="https://github.com/SumeetKumarBarua/FactsBox">FactsBox</a>. 
+
+Still if you want to make this project to work on your local system then make some minor changes:
 
    1.Copy the project on to your local system and run the table script on your own database.
     
