@@ -59,6 +59,11 @@ Send me an email sumeet.barua007@gmail.com (might take a few days)
     3.Quora: For collecting some really interesting facts. 
     4.Google, alpha coders and many more for the images.
     5.Thanks to anyone who's code was used
+    
+# Improvements
+    1.Improving the UI
+    2.Making it compatible for Hibernate
+
 
 # The MIT License (MIT)
 
