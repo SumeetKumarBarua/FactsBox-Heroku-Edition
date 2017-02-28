@@ -6,6 +6,10 @@ Everyone wants to have a piece of Science in their daily lives. This app gives s
 
 ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/iphone.gif)
 
+# Getting Started
+
+Heroku supports postgreSQL databaseccvcvcfgfg
+
 Visit <a href="https://factsbox.herokuapp.com">here</a>
 
 
