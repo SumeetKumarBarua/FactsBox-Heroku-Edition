@@ -25,10 +25,14 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
     3.Import the repo to Eclipse as Maven Project.
     4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/URL.PNG)
-    
+        var getURI = function(){
+	    var URL='https://factsbox.herokuapp.com/api/';
+	    return URL;
+         }
     Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name 
     You are ready to go.
-As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms.
+    5.Run on server.
+As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
 
 # Deploy
 Please visit <a href="https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app">here </a> to follow the steps to deploy in Heroku
