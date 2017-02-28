@@ -20,9 +20,12 @@ This project is solely dedicated for web hosting on Heroku. To make it live plea
 To run on local server please visit <a href="https://github.com/SumeetKumarBarua/FactsBox">FactsBox</a>. Still if you want to make this project to work on your local system then make some minor changes:
     1.Copy the project on to your local system and run the table script on your own database.
     2.Configure the connection file with the driver settings of database whichever you are using here.
+    
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/connection.PNG)
+    
     3.Change the URL setting here as per the URL configuration of the server you are using.
     ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/URL.PNG)
+    
     Eg. you can change it to something like this [http]://localhost:[port number]/Your_App_Name 
     You are ready to go.
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms.
