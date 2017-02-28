@@ -34,7 +34,8 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
 	    return URL;
          }
 	 
-    	Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name/index.html
+    	Eg. If you use Tomcat then it would look something like this:
+	    [http]://localhost:[port number]/Your_App_Name/index.html
     
     5.Run on server.    
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
