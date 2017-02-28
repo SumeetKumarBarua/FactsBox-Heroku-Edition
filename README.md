@@ -50,7 +50,7 @@ Please Visit <a href="https://factsbox.herokuapp.com">here </a>
 Send me an email sumeet.barua007@gmail.com (might take a few days)
 
 # Links
-  <a href="https://devcenter.heroku.com/articles/getting-started-with-java#set-up">Heroku Java Support</a>
+  <a href="https://devcenter.heroku.com/articles/getting-started-with-java#set-up">Heroku Java Support</a><br>
   <a href="https://github.com/kissaten/webapp-runner-minimal">An Example on Webapp-runner</a>
 
 # Thanks
