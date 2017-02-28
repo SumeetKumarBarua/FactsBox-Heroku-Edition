@@ -30,7 +30,9 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
 	    return URL;
          }
     Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name/index.html
-    5.Run on server and you are ready to go..
+    
+    5.Run on server and you are ready to go.
+    
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
 
 # Deploy
@@ -47,10 +49,11 @@ Send me an email sumeet.barua007@gmail.com (might take a few days)
 <a href="https://github.com/kissaten/webapp-runner-minimal">An Example on Webapp-runner</a>
 
 # Thanks
- 1.Github: For everything.
- 2.Heroku: For providing a platform to make it go Live.
- 3.Quora: For collecting some really interesting facts. 
- 4.Google, alpha coders and many more for the images.
+    1.Github: For everything.
+    2.Heroku: For providing a platform to make it go Live.
+    3.Quora: For collecting some really interesting facts. 
+    4.Google, alpha coders and many more for the images.
+    5.Thanks to anyone who's code was used
 
 # The MIT License (MIT)
 
