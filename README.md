@@ -24,23 +24,33 @@ To run on local server please visit <a href="https://github.com/SumeetKumarBarua
     
     3.Import the repo to Eclipse as Maven Project.
     4.Change the URL setting(Properties.js) as per the URL configuration of the server you are using.
-    ![alt tag](https://github.com/SumeetKumarBarua/FactsBox-Heroku-Edition/blob/master/WebContent/img/URL.PNG)
+    
         var getURI = function(){
 	    var URL='https://factsbox.herokuapp.com/api/';
 	    return URL;
          }
-    Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name 
-    You are ready to go.
-    5.Run on server.
+    Eg. If you use Tomcat then it would look something like this [http]://localhost:[port number]/Your_App_Name/index.html
+    5.Run on server and you are ready to go..
 As Heroku supports postgreSQL database for the application, this application has been fully configured on its terms. kindly change it as per your requirements.
 
 # Deploy
 Please visit <a href="https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app">here </a> to follow the steps to deploy in Heroku
 
-
-
 # Live Demo
-Visit <a href="https://factsbox.herokuapp.com">here</a>
+Please Visit <a href="https://factsbox.herokuapp.com">here </a>
+
+# Something else isn't working properly
+Send me an email sumeet.barua007@gmail.com (might take a few days)
+
+# Links
+<a href="https://devcenter.heroku.com/articles/getting-started-with-java#set-up">Heroku Java Support</a>
+<a href="https://github.com/kissaten/webapp-runner-minimal">An Example on Webapp-runner</a>
+
+# Thanks
+ 1.Github: For everything.
+ 2.Heroku: For providing a platform to make it go Live.
+ 3.Quora: For collecting some really interesting facts. 
+ 4.Google, alpha coders and many more for the images.
 
 # The MIT License (MIT)
 
