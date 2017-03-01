@@ -68,6 +68,7 @@ Send me an email sumeet.barua007@gmail.com (might take a few days)
 # Improvements
     1.Improving the UI
     2.Making it compatible for Hibernate
+    3.Adding more Facts to the database to avoid repetation
 
 
 # The MIT License (MIT)
