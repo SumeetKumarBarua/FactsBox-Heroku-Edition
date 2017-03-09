@@ -44,6 +44,15 @@ h5
      font-family: simplifica;
 }
 
+@font-face {
+    font-family: Roboto;    
+    src: url("../css/roboto.ttf");
+}
+
+.roboto {
+     font-family: Roboto;
+}
+
 .indexpage{
 		height: 80%;
 }
@@ -69,7 +78,7 @@ h5
 
 .buttons {
 	position: fixed;
-	top: 50%;
+	top: 80%;
 	left: 50%;
 	margin-top: -50px;
 	margin-left: -100px;
