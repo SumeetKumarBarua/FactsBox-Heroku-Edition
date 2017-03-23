@@ -8,11 +8,24 @@ import com.smith.facts.dao.FactDAO;
 import com.smith.facts.resources.Factory;
 
 public class FactServiceImpl implements FactService {
-
-
-	public List<String> getFactsCategory(String category) throws Exception {
+	
+	
+	public List<Facts> getAllFacts() throws Exception {
 		FactDAO dao=Factory.createFactDAO();
-		List<String> result=dao.getFactsCategory(category);
+		List<Facts> result=dao.getAllFacts();
+		return result;
+	}
+
+	public List<Facts> getFact(Integer factId) throws Exception {
+		FactDAO dao=Factory.createFactDAO();
+		List<Facts> result=dao.getFact(factId);
+		return result;
+	}
+	
+	
+	public List<Facts> getFactsCategory(String category) throws Exception {
+		FactDAO dao=Factory.createFactDAO();
+		List<Facts> result=dao.getFactsCategory(category);
 		return result;
 	}
 	

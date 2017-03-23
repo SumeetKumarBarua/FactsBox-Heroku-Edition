@@ -10,15 +10,77 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import com.google.gson.Gson;
 import com.smith.facts.bean.Facts;
 import com.smith.facts.business.service.FactService;
 import com.smith.facts.resources.Factory;
-import com.smith.facts.resources.JSONParser;
 
 @Path("FactAPI")
 public class FactAPI {
 	
-	// gets the category
+	//get All facts
+	@GET
+	@Path("allFacts")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllFacts()throws Exception{
+		Response response=null;
+		try{
+			FactService ser=Factory.createFactService();
+			List<Facts> factList=ser.getAllFacts();
+			
+			String returnString=new Gson().toJson(factList);
+			response=Response.ok(returnString).build();
+		}
+		catch(Exception e){
+			Facts msg = new Facts();
+			msg.setErrMsg((e.getMessage()));
+			String returnString = new Gson().toJson(msg);
+			if (e.getMessage().contains("DATABASE")) {
+				response = Response.status(Status.SERVICE_UNAVAILABLE)
+						.entity(returnString).build();
+			} else {
+				response = Response.status(Status.BAD_REQUEST)
+						.entity(returnString).build();
+
+			}
+			}
+		return response;
+	}
+	// gets details by factId from DB
+		@GET
+		@Path("factId/{fId}")
+		@Produces(MediaType.APPLICATION_JSON)
+		public Response getFactDesc(@PathParam("fId") String factId)
+				throws Exception {
+			Response response = null;
+			Integer id = Integer.parseInt(factId);
+
+			try {
+				FactService ser = Factory.createFactService();
+				List<Facts> factList = ser.getFact(id);
+
+				String returnString = new Gson().toJson(factList);
+				response = Response.ok(returnString).build();
+			} catch (Exception e) {
+
+				Facts msg = new Facts();
+				msg.setErrMsg((e.getMessage()));
+				String returnString = new Gson().toJson(msg);
+				if (e.getMessage().contains("DATABASE")) {
+					response = Response.status(Status.SERVICE_UNAVAILABLE)
+							.entity(returnString).build();
+				} else {
+					response = Response.status(Status.BAD_REQUEST)
+							.entity(returnString).build();
+
+				}
+			}
+
+			return response;
+		}
+	
+	
+	// gets details by the category
 	@GET
 	@Path("category/{cat}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -28,16 +90,18 @@ public class FactAPI {
 
 		try {
 			FactService ser = Factory.createFactService();
-			List<String> factList = ser.getFactsCategory(category);
-
-			String returnString = JSONParser.toJson(factList);
-
+			List<Facts> factList = ser.getFactsCategory(category);
+			
+			//String returnString = JSONParser.toJson(factList);
+			String returnString = new Gson().toJson(factList);
 			response = Response.ok(returnString).build();
+			
+			//System.out.println(response+" response");
 		} catch (Exception e) {
 
 			Facts msg = new Facts();
 			msg.setErrMsg((e.getMessage()));
-			String returnString = JSONParser.toJson(msg);
+			String returnString = new Gson().toJson(msg);
 			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
@@ -61,14 +125,14 @@ public class FactAPI {
 			FactService factService = Factory.createFactService();
 			List<String> categoryList = factService.getDistinctcatergories();
 
-			String returnString = JSONParser.toJson(categoryList);
+			String returnString = new Gson().toJson(categoryList);
 
 			response = Response.ok(returnString).build();
 		} catch (Exception e) {
 
 			Facts msg = new Facts();
 			msg.setErrMsg((e.getMessage()));
-			String returnString = JSONParser.toJson(msg);
+			String returnString = new Gson().toJson(msg);
 			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
@@ -92,14 +156,14 @@ public class FactAPI {
 			FactService factService = Factory.createFactService();
 			List<Integer> noOfFacts = factService.getCountCategories();
 
-			String returnString = JSONParser.toJson(noOfFacts);
+			String returnString = new Gson().toJson(noOfFacts);
 
 			response = Response.ok(returnString).build();
 		} catch (Exception e) {
 
 			Facts msg = new Facts();
 			msg.setErrMsg((e.getMessage()));
-			String returnString = JSONParser.toJson(msg);
+			String returnString = new Gson().toJson(msg);
 			if (e.getMessage().contains("DATABASE")) {
 				response = Response.status(Status.SERVICE_UNAVAILABLE)
 						.entity(returnString).build();
