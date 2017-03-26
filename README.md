@@ -48,11 +48,11 @@ As Heroku supports postgreSQL database for the application, this application has
 # Deploy
 Please visit <a href="https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app">here </a> to follow the steps to deploy on Heroku
 
-# Working with API
-This project exposes its data in the form of API. To know about various API methods in detail please <a href="https://github.com/SumeetKumarBarua/Working-with-API">Check here</a>.
-
 # Live Demo
 Please Visit <a href="https://factsbox.herokuapp.com">here </a>
+
+# Working with API
+This project exposes its data in the form of API. To know about various API methods in detail please <a href="https://github.com/SumeetKumarBarua/Working-with-API">Check here</a>.
 
 # Something isn't working properly
 Send me an email sumeet.barua007@gmail.com (might take a few days)
